@@ -1,0 +1,25 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+			{
+					"name": "SampleApp",
+					"type": "coreclr",
+					"request": "launch",
+					"cwd": "/app",
+					"program": "/app/SampleApp.dll",
+					"sourceFileMap": {
+							"/app": "${workspaceRoot}"
+					},
+					"pipeTransport": {
+							"debuggerPath": "/vsdbg/vsdbg",
+							"pipeProgram": "docker",
+							"pipeCwd": "${workspaceRoot}",
+							"pipeArgs": [
+									"exec","-i","netcoreapp31_web_1"
+							],
+							"quoteArgs": false
+					},
+					"justMyCode": false
+			}
+	]
+}

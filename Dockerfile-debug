@@ -1,0 +1,16 @@
+FROM mcr.microsoft.com/dotnet/core/aspnet
+LABEL name="zeitdotnet"
+
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends \
+        unzip \
+    && rm -rf /var/lib/apt/lists/* \
+    && curl -sSL https://aka.ms/getvsdbgsh | bash /dev/stdin -v latest -l /vsdbg
+
+ARG source=.
+WORKDIR /app
+EXPOSE 3000
+COPY $source .
+
+Use this entrypoint if debugging the container
+ENTRYPOINT ["tail", "-f", "/dev/null"]
