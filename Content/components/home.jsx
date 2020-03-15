@@ -9,7 +9,6 @@ import {
 } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 
-import { CommentsBox } from './comments/Sample.jsx';
 import { StyledComponentsDemo } from './styled-components.jsx';
 import { EmotionDemo } from './emotion.jsx';
 import { ReactJssDemo } from './react-jss.jsx';
@@ -21,9 +20,6 @@ class Navbar extends Component {
 			<ul>
 				<li>
 					<Link to="/">Home</Link>
-				</li>
-				<li>
-					<Link to="/comments">Comments Demo</Link>
 				</li>
 				<li>
 					<Link to="/styled-components">Styled Components Demo</Link>
@@ -47,9 +43,10 @@ class HomePage extends Component {
 		return (
 			<Fragment>
 				<Helmet>
-					<title>ReactJS.NET Demos</title>
+					<title>Dustin Software, Inc.</title>
 				</Helmet>
-				ReactJS.NET is 🔥🔥
+				<div>This is a demo site built with <a href="https://reactjs.net">ReactJS.NET</a>.</div>
+				<div>Follow me on <a href="https://twitter.com/dustinsoftware">Twitter!</a></div>
 			</Fragment>
 		);
 	}
@@ -60,7 +57,7 @@ export default class HomeComponent extends Component {
 		const app = (
 			<div className="container">
 				<div className="jumbotron">
-					<h1 className="display-4">.NET Core Sample</h1>
+					<h1 className="display-4">Dustin Software, Inc.</h1>
 					<Navbar />
 					<hr className="my-4" />
 					<Switch>
@@ -70,15 +67,6 @@ export default class HomeComponent extends Component {
 							render={() => <Redirect to="/home" />}
 						/>
 						<Route path="/home" component={HomePage} />
-						<Route
-							path="/comments"
-							component={() => (
-								<CommentsBox
-									initialComments={this.props.initialComments}
-									page={this.props.page}
-								/>
-							)}
-						/>
 						<Route
 							path="/styled-components"
 							component={StyledComponentsDemo}
