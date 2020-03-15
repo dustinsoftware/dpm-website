@@ -1,3 +1,9 @@
 runtimes/osx-x64
 runtimes/win-x64
 runtimes/win-x86
+docker-compose.yml
+Dockerfile*
+bin/
+node_modules/
+obj/
+
