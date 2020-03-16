@@ -1,4 +1,4 @@
-using JavaScriptEngineSwitcher.ChakraCore;
+using JavaScriptEngineSwitcher.Node;
 using JavaScriptEngineSwitcher.Extensions.MsDependencyInjection;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
@@ -23,8 +23,8 @@ namespace React.Sample.Webpack.CoreMvc
 		{
 			services.AddMvc();
 
-			services.AddJsEngineSwitcher(options => options.DefaultEngineName = ChakraCoreJsEngine.EngineName)
-				.AddChakraCore();
+			services.AddJsEngineSwitcher(options => options.DefaultEngineName = NodeJsEngine.EngineName)
+				.AddNode();
 
 			services.AddReact();
 			services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
@@ -34,7 +34,7 @@ namespace React.Sample.Webpack.CoreMvc
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-		public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+		public void Configure(IApplicationBuilder app, IHostEnvironment env)
 		{
 			// Initialise ReactJS.NET. Must be before static files.
 			app.UseReact(config =>
