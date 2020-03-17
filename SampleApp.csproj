@@ -18,3 +18,4 @@
     <Exec Command="npm i &amp;&amp; npm run build" />
   </Target>
 </Project>
+
